@@ -1,6 +1,6 @@
 import argparse
 import requests
-from bs4 import BeautifulSoupn
+from bs4 import BeautifulSoup
 import pandas as pd
 
 
