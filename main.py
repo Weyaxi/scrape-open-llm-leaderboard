@@ -1,11 +1,7 @@
 import argparse
 import requests
-from bs4 import BeautifulSoup
-import json
-import re
-import time
+from bs4 import BeautifulSoupn
 import pandas as pd
-import markdown
 
 
 def get_json_format_data():
