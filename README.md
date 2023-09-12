@@ -16,11 +16,6 @@ Before using the scraper, ensure you have the following prerequisites installed:
 - Python 3.x
 - Required Python packages 
 
-You can install these packages using pip:
-
-```bash
-pip3 install -r requirements.txt
-```
 
 # Usage
 To use the Open LLM Leaderboard Scraper, follow these steps:
@@ -34,10 +29,17 @@ git clone https://github.com/Weyaxi/scrape-open-llm-leaderboard
 ```bash
 cd scrape-open-llm-leaderboard
 ```
-3.Run the script using the following command:
+
+3. Install the required packages using this command:
 
 ```bash
-python main.py [options]
+pip3 install -r requirements.txt
+```
+
+4. Run the script using the following command:
+
+```bash
+python3 main.py [options]
 ```
 
 # Export Options
@@ -51,7 +53,7 @@ The script supports three export options:
 You can use these options to specify the desired export format(s). For example, to export data in both CSV and HTML formats, run the following command:
 
 ```bash
-python main.py -csv -html
+python3 main.py -csv -html
 ```
 
 If no export options are provided, the script will default to exporting data in CSV format.
