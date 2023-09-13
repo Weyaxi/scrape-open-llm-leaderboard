@@ -20,21 +20,18 @@ def get_datas(data):
         try:
             result_list = []
             i = 0
-            flag = True
-            while True and flag:
+            while True:
                 try:
                     results = data['components'][component_index]['props']['value']['data'][i][2:15]
-                    type_of = data['components'][component_index]['props']['value']['data'][i][0]
+                    type_of_emoji = data['components'][component_index]['props']['value']['data'][i][0]
 
                     try:
-                        results_json = {"Type": type_of, "Model": results[-1], "Average": results[0], "ARC": results[1], "HellaSwag": results[2], "TruthfulQA": results[3], "Precision": results[6], "Hub License": results[7], "#Params (B)": results[8],  "Model Sha": results[11]}
-                    except IndexError:
-                        flag = False
-                        continue
-
+                        results_json = {"T": type_of_emoji, "Model": results[-1], "Average ⬆️": results[0], "ARC": results[1], "HellaSwag": results[2], "MMLU": results[3], "TruthfulQA": results[4], "Type": results[5],"Precision": results[6], "Hub License": results[7], "#Params (B)": results[8], "Hub ❤️": results[9], "Model Sha": results[11]}                        
+                    except IndexError: # Wrong component index, so breaking loop to try next component index. (NOTE: More than one component index can give you some results but we must find the right component index to get all results we want.)
+                        break
                     result_list.append(results_json)
                     i += 1
-                except (IndexError, AttributeError):
+                except IndexError: # No rows to extract so return the list (We know it is the right component index because we didn't break out of loop on the other exception.)
                     return result_list
         except (KeyError, TypeError):
             continue
