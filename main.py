@@ -22,11 +22,11 @@ def get_datas(data):
             i = 0
             while True:
                 try:
-                    results = data['components'][component_index]['props']['value']['data'][i][2:15]
+                    results = data['components'][component_index]['props']['value']['data'][i]
                     type_of_emoji = data['components'][component_index]['props']['value']['data'][i][0]
 
                     try:
-                        results_json = {"T": type_of_emoji, "Model": results[-1], "Average ⬆️": results[0], "ARC": results[1], "HellaSwag": results[2], "MMLU": results[3], "TruthfulQA": results[4], "Type": results[5],"Precision": results[6], "Hub License": results[7], "#Params (B)": results[8], "Hub ❤️": results[9], "Model Sha": results[11]}                        
+                        results_json = {"T": type_of_emoji, "Model": results[-1], "Average ⬆️": results[2], "ARC": results[3], "HellaSwag": results[4], "MMLU": results[5], "TruthfulQA": results[6], "Winogrande": results[7], "GSM8K": results[8], "DROP": results[9], "Type": results[10], "Precision": results[11], "Hub License": results[12], "#Params (B)": results[13], "Hub ❤️": results[14], "Model Sha": results[16]}                        
                     except IndexError: # Wrong component index, so breaking loop to try next component index. (NOTE: More than one component index can give you some results but we must find the right component index to get all results we want.)
                         break
                     result_list.append(results_json)
@@ -37,6 +37,7 @@ def get_datas(data):
             continue
 
     return result_list
+
 
 
 def main():
