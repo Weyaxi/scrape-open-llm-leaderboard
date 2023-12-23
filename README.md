@@ -68,3 +68,8 @@ The scraper will generate one or more output files based on the export options s
 
 You can find these files in the same directory where you run the script.
 
+# Contributors
+
+Special thanks to the following individuals who have contributed to this project:
+
+- [itsuka-dev](https://github.com/itsuka-dev)
