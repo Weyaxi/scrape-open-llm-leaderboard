@@ -22,10 +22,30 @@ def get_datas(data):
             while True:
                 try:
                     results = data['components'][component_index]['props']['value']['data'][i]
-                    type_of_emoji = data['components'][component_index]['props']['value']['data'][i][0]
-
                     try:
-                        results_json = {"T": type_of_emoji, "Model": results[-1], "Average ⬆️": results[2], "ARC": results[3], "HellaSwag": results[4], "MMLU": results[5], "TruthfulQA": results[6], "Winogrande": results[7], "GSM8K": results[8], "Type": results[9], "Architecture": results[10], "Precision": results[11], "Merged": results[12], "Hub License": results[13], "#Params (B)": results[14], "Hub ❤️": results[15], "Available on the Hub": results[16], "Model Sha": results[17], "Flagged": results[18]}
+                        results_json = {
+                            "T": results[0],
+                            "Model": results[-1],
+                            "Average ⬆️": results[2],
+                            "ARC": results[3],
+                            "HellaSwag": results[4],
+                            "MMLU": results[5],
+                            "TruthfulQA": results[6],
+                            "Winogrande": results[7],
+                            "GSM8K": results[8],
+                            "Type": results[9],
+                            "Architecture": results[10],
+                            "Weight Type": results[11],
+                            "Precision": results[12],
+                            "Merged": results[13],
+                            "Hub License": results[14],
+                            "#Params (B)": results[15],
+                            "Hub ❤️": results[16],
+                            "Available on the Hub": results[17],
+                            "Model Sha": results[18],
+                            "Flagged": results[19],
+                            "MoE": results[20],
+                        }
                     except IndexError:  # Wrong component index, so breaking loop to try next component index. (NOTE: More than one component index can give you some results but we must find the right component index to get all results we want.)
                         break
                     result_list.append(results_json)
