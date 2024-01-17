@@ -22,30 +22,16 @@ def get_datas(data):
             while True:
                 try:
                     results = data['components'][component_index]['props']['value']['data'][i]
+                    columns = data['components'][component_index]['props']['headers']
                     try:
-                        results_json = {
-                            "T": results[0],
-                            "Model": results[-1],
-                            "Average ⬆️": results[2],
-                            "ARC": results[3],
-                            "HellaSwag": results[4],
-                            "MMLU": results[5],
-                            "TruthfulQA": results[6],
-                            "Winogrande": results[7],
-                            "GSM8K": results[8],
-                            "Type": results[9],
-                            "Architecture": results[10],
-                            "Weight Type": results[11],
-                            "Precision": results[12],
-                            "Merged": results[13],
-                            "Hub License": results[14],
-                            "#Params (B)": results[15],
-                            "Hub ❤️": results[16],
-                            "Available on the Hub": results[17],
-                            "Model Sha": results[18],
-                            "Flagged": results[19],
-                            "MoE": results[20],
-                        }
+                        results_json = {"T": results[0], "Model": results[-1]}
+
+                        if len(columns) < 15: # If there are less than 15 columns (this number can definetly change), we know that we are trying wrong component index, so breaking loop to try next component index.
+                            break
+
+                        for col_index, col_name in enumerate(columns[2:-1], start=2):
+                            results_json[col_name] = results[col_index]
+                            
                     except IndexError:  # Wrong component index, so breaking loop to try next component index. (NOTE: More than one component index can give you some results but we must find the right component index to get all results we want.)
                         break
                     result_list.append(results_json)
