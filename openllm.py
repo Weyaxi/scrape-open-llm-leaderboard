@@ -5,7 +5,7 @@ import json
 
 
 def get_json_format_data():
-    url = 'https://huggingfaceh4-open-llm-leaderboard.hf.space/'
+    url = 'https://open-llm-leaderboard-open-llm-leaderboard.hf.space/'
     response = requests.get(url)
     soup = BeautifulSoup(response.content, 'html.parser')
 
