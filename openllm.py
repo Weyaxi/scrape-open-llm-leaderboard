@@ -23,13 +23,16 @@ def get_datas(data):
                 try:
                     results = data['components'][component_index]['props']['value']['data'][i]
                     columns = data['components'][component_index]['props']['headers']
-                    try:
-                        results_json = {"T": results[0], "Model": results[-1]}
+                    
+                    model_fullname_index = columns.index("fullname") if "fullname" in [col.lower() for col in columns] else -3 # Will be used when we extract the model name from the data
 
-                        if len(columns) < 15: # If there are less than 15 columns (this number can definetly change), we know that we are trying wrong component index, so breaking loop to try next component index.
+                    try:
+                        results_json = {"T": results[0], "Model": results[model_fullname_index]} # Set the first 2 manually because normally there is a link in the "Model" column
+
+                        if len(columns) < 20: # If there are less than 20 columns (this number can definetly change), we know that we are trying wrong component index, so breaking loop to try next component index.
                             break
 
-                        for col_index, col_name in enumerate(columns[2:-1], start=2):
+                        for col_index, col_name in enumerate(columns[2:], start=2):
                             results_json[col_name] = results[col_index]
                             
                     except IndexError:  # Wrong component index, so breaking loop to try next component index. (NOTE: More than one component index can give you some results but we must find the right component index to get all results we want.)
