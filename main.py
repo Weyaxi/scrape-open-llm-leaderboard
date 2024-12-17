@@ -10,9 +10,7 @@ def main():
     
     args = parser.parse_args()
 
-    data = get_json_format_data()
-    finished_models = get_datas(data)
-    df = pd.DataFrame(finished_models)
+    df = get_datas()
 
     if not args.csv and not args.html and not args.json:
         args.csv = True  # If no arguments are provided, default to CSV export

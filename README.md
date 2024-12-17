@@ -1,6 +1,12 @@
 # Open LLM Leaderboard Scraper
 
-The Open LLM Leaderboard Scraper is a Python script that allows you to scrape and export data from the Open LLM Leaderboard.
+The Open LLM Leaderboard Scraper is a Python script that allows you to retrieve and export data from the Open LLM Leaderboard.
+
+> [!WARNING]
+> With the new [update](https://x.com/clefourrier/status/1866574444115705975), the Open LLM Leaderboard has switched to a brand-new UI with a new frontend. Therefore, the scraping option is now unavailable. The old scraping method is still available in the [`old-scraping-method`](https://github.com/Weyaxi/scrape-open-llm-leaderboard/tree/old-scraping-method) branch.
+
+> [!IMPORTANT]
+> This repository still works by retrieving the dataframe from the [official contents dataset](https://huggingface.co/datasets/open-llm-leaderboard/contents).
 
 ## Table of Contents
 - [Introduction](#open-llm-leaderboard-scraper)
